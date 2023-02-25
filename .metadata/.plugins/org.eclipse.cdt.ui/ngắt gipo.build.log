@@ -1,0 +1,10 @@
+15:44:25 **** Incremental Build of configuration Debug for project ng?t gipo ****
+make -j8 all 
+arm-none-eabi-gcc -o "ngắt gipo.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"C:\Users\hienn\STM32CubeIDE\workspace_1.11.2\ngắt gipo\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ngắt gipo.map" -Wl,--gc-sections -static -L"C:\Users\hienn\STM32CubeIDE\workspace_1.11.2\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+c:\st\stm32cubeide_1.11.2\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\bin\ld.exe: cannot open linker script file C:\Users\hienn\STM32CubeIDE\workspace_1.11.2\ng???t gipo\STM32F401RETX_FLASH.ld: No such file or directory
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:63: ngắt gipo.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+15:44:25 Build Failed. 2 errors, 0 warnings. (took 190ms)
+

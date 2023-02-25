@@ -1,0 +1,95 @@
+15:42:41 **** Incremental Build of configuration Debug for project debugging ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I../Inc -I"C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'Led_Init':
+../Src/main.c:49:25: error: 'LEDControl_SetClock' undeclared (first use in this function); did you mean 'LEDCOntrol_SetClock'?
+   49 |  RCC_AHB1PeriphClockCmd(LEDControl_SetClock, ENABLE);
+      |                         ^~~~~~~~~~~~~~~~~~~
+      |                         LEDCOntrol_SetClock
+../Src/main.c:49:25: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:55:33: error: 'LED_PuPd_DOWN' undeclared (first use in this function); did you mean 'GPIO_PuPd_DOWN'?
+   55 |  GPIO_InitStructure.GPIO_PuPd = LED_PuPd_DOWN;
+      |                                 ^~~~~~~~~~~~~
+      |                                 GPIO_PuPd_DOWN
+../Src/main.c: In function 'Interrupt_Init':
+../Src/main.c:75:2: warning: implicit declaration of function 'RCC_APBPeriphClockCmd'; did you mean 'RCC_APB2PeriphClockCmd'? [-Wimplicit-function-declaration]
+   75 |  RCC_APBPeriphClockCmd(SYSFG_Clock, ENABLE);
+      |  ^~~~~~~~~~~~~~~~~~~~~
+      |  RCC_APB2PeriphClockCmd
+../Src/main.c:79:20: error: 'GPIO_InitTypeDef' has no member named 'EXTI_Line'
+   79 |  EXTI_InitStructure.EXTI_Line = EXTI_Line3;
+      |                    ^
+../Src/main.c:80:20: error: 'GPIO_InitTypeDef' has no member named 'EXTI_Mode'
+   80 |  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+      |                    ^
+../Src/main.c:81:20: error: 'GPIO_InitTypeDef' has no member named 'EXTI_Trigger'
+   81 |  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+      |                    ^
+../Src/main.c:82:20: error: 'GPIO_InitTypeDef' has no member named 'EXTI_LineCmd'
+   82 |  EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+      |                    ^
+../Src/main.c:83:12: warning: passing argument 1 of 'EXTI_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+   83 |  EXTI_Init(&EXTI_InitStructure);
+      |            ^~~~~~~~~~~~~~~~~~~
+      |            |
+      |            GPIO_InitTypeDef *
+In file included from ../Src/main.c:18:
+C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc/stm32f401re_exti.h:162:34: note: expected 'EXTI_InitTypeDef *' but argument is of type 'GPIO_InitTypeDef *'
+  162 | void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct);
+      |                ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+../Src/main.c:86:20: error: 'GPIO_InitTypeDef' has no member named 'NVIC_IRQChannel'
+   86 |  NVIC_InitStructure.NVIC_IRQChannel = EXTI3_IRQn;
+      |                    ^
+../Src/main.c:87:20: error: 'GPIO_InitTypeDef' has no member named 'NVIC_IRQChannelPreemptionPriority'
+   87 |  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+      |                    ^
+../Src/main.c:88:20: error: 'GPIO_InitTypeDef' has no member named 'NVIC_IRQChannelSubPriority'
+   88 |  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+      |                    ^
+../Src/main.c:89:20: error: 'GPIO_InitTypeDef' has no member named 'NVIC_IRQChannelCmd'
+   89 |  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+      |                    ^
+../Src/main.c:90:12: warning: passing argument 1 of 'NVIC_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+   90 |  NVIC_Init(&NVIC_InitStructure);
+      |            ^~~~~~~~~~~~~~~~~~~
+      |            |
+      |            GPIO_InitTypeDef *
+In file included from ../Src/main.c:21:
+C:/Users/hienn/STM32CubeIDE/workspace_1.11.2/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc/misc.h:159:34: note: expected 'NVIC_InitTypeDef *' but argument is of type 'GPIO_InitTypeDef *'
+  159 | void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct);
+      |                ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+../Src/main.c: In function 'EXTI3_IRQHandler':
+../Src/main.c:105:3: error: 'Status' undeclared (first use in this function); did you mean 'ITStatus'?
+  105 |   Status++;
+      |   ^~~~~~
+      |   ITStatus
+../Src/main.c: In function 'LedControl_SetStatus':
+../Src/main.c:124:16: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  124 |  if (Status == GPIO_PIN_RESET){
+      |                ^~~~~~~~~~~~~~
+      |                GPIO_PIN_SET
+../Src/main.c: In function 'main':
+../Src/main.c:143:7: error: 'Status' undeclared (first use in this function); did you mean 'ITStatus'?
+  143 |   if (Status % 2 !=0)
+      |       ^~~~~~
+      |       ITStatus
+../Src/main.c:145:4: warning: implicit declaration of function 'LedCOntrol_SetStatus'; did you mean 'LedControl_SetStatus'? [-Wimplicit-function-declaration]
+  145 |    LedCOntrol_SetStatus(LED_GPIO_PORT, LED_GPIO_PIN, GPIO_PIN_SET);
+      |    ^~~~~~~~~~~~~~~~~~~~
+      |    LedControl_SetStatus
+../Src/main.c:149:54: error: 'GPIO_PIN_RESET' undeclared (first use in this function); did you mean 'GPIO_PIN_SET'?
+  149 |    LedControl_SetStatus(LED_GPIO_PORT, LED_GPIO_PIN, GPIO_PIN_RESET);
+      |                                                      ^~~~~~~~~~~~~~
+      |                                                      GPIO_PIN_SET
+../Src/main.c: At top level:
+../Src/main.c:156:1: error: unknown type name 'staticc'
+  156 | staticc uint8_t Status=1;
+      | ^~~~~~~
+../Src/main.c:156:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'Status'
+  156 | staticc uint8_t Status=1;
+      |                 ^~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+15:42:42 Build Failed. 17 errors, 4 warnings. (took 175ms)
+
